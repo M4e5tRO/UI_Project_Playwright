@@ -1,0 +1,15 @@
+first_name_loc = '#firstname'
+last_name_loc = '#lastname'
+email_loc = '#email_address'
+password_loc = '#password'
+conf_password_loc = '#password-confirmation'
+create_btn_loc = '.action.submit'
+
+success_message_loc = '.page.messages'
+contact_info_loc = '//*[contains(@class, "box-information")]/descendant::p'
+
+first_name_error_loc = '#firstname-error'
+last_name_error_loc = '#lastname-error'
+email_error_loc = '#email_address-error'
+password_error_loc = '#password-error'
+conf_password_error_loc = '#password-confirmation-error'
