@@ -1,5 +1,7 @@
 import pytest
 import allure
+import os
+from datetime import datetime
 from playwright.sync_api import sync_playwright
 
 from .pages.create_account import CreateAccount
@@ -32,11 +34,17 @@ def pytest_runtest_makereport(item, call):
     if rep.when == "call" and rep.failed:
         page = item.funcargs.get('page')
         if page:
-            screenshot_path = f"screenshots/{item.name}.png"
+            os.makedirs("screenshots", exist_ok=True)
+            screenshot_name = f'{datetime.now().strftime("%Y%m%d_%H%M%S")}_{item.name}.png'
+            screenshot_path = f"screenshots/{screenshot_name}"
             page.screenshot(path=screenshot_path, full_page=True)
             print(f"Screenshot saved to {screenshot_path}")
 
-            allure.attach(open(screenshot_path, "rb").read(), "screenshot", allure.attachment_type.PNG)
+            allure.attach(
+                open(screenshot_path, "rb").read(),
+                f'screenshot - {screenshot_name}',
+                allure.attachment_type.PNG
+            )
 
 
 @pytest.fixture()
