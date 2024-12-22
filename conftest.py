@@ -35,7 +35,7 @@ def pytest_runtest_makereport(item, call):
         page = item.funcargs.get('page')
         if page:
             os.makedirs("screenshots", exist_ok=True)
-            screenshot_name = f'{datetime.now().strftime('%Y%m%d_%H%M%S')}_{item.name}.png'
+            screenshot_name = f'{datetime.now().strftime("%Y%m%d_%H%M%S")}_{item.name}.png'
             screenshot_path = f"screenshots/{screenshot_name}"
             page.screenshot(path=screenshot_path, full_page=True)
             print(f"Screenshot saved to {screenshot_path}")
