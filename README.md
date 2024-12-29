@@ -19,7 +19,9 @@ Playwright docs - https://playwright.dev/python/docs/intro
 2. Install the dependencies:
    ```bash
    pip install -r requirements.txt
-
-3. Run tests:
+3. Install browsers (Chromium, Firefox, Webkit):
+   ```bash
+   playwright install --with-deps
+4. Run tests:
     ```bash
     pytest
